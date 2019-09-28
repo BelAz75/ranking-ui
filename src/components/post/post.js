@@ -4,6 +4,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import CosmoUser from './user';
 import CosmoContent from './content';
 import CosmoText from './text';
+import CosmoFooter from './footer';
 
 class CosmoPost extends Component {
   constructor (props) {
@@ -24,7 +25,9 @@ class CosmoPost extends Component {
         <Group>
           <CosmoUser user={post.user}/>
 
-          <CosmoContent content={post.content}/>
+          <CosmoContent content={post.content[0]}/>
+
+          <CosmoFooter post={post}/>
 
           <CosmoText text={post.text}/>
         </Group>

@@ -35,7 +35,7 @@ class CosmoContent extends Component {
             ? <LazyLoadImage
               width='100%'
               height='auto'
-              style={{ minHeight: '350px' }}
+              style={{ minHeight: '250px' }}
               placeholderSrc={placeholderImage}
               src={content.imageUrl}/>
             : <div style={{ position: 'relative' }}>
