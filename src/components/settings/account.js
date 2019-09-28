@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { CellButton, Cell, Group, List } from '@vkontakte/vkui';
+import { CellButton, Cell, Group, List, Avatar } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
+import vkLogo from './VK_Blue_Logo_transparent.png';
+import instagramLogo from './Instagram_AppIcon_Aug2017.png';
 
 class CosmoAccount extends Component {
   constructor (props) {
@@ -19,12 +21,12 @@ class CosmoAccount extends Component {
     return (
       <Group title={account.name}>
         <List>
-          <Cell>
-            VK: {account.vkUrl}
+          <Cell multiline='true' before={<Avatar src={vkLogo}/>}>
+            {account.vkUrl}
           </Cell>
 
-          <Cell>
-            Instagram: {account.instagramUrl}
+          <Cell multiline='true' before={<Avatar src={instagramLogo}/>}>
+            {account.instagramUrl}
           </Cell>
         </List>
 
