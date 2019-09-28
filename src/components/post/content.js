@@ -20,12 +20,14 @@ class CosmoContent extends Component {
 
     return (
       <Cell>
-        <LazyLoadImage
-          width='100%'
-          height='auto'
-          style={{ minHeight: '350px' }}
-          placeholderSrc={placeholderImage}
-          src={content.imageUrl}/>
+        {content.videoUrl === null
+        ? <LazyLoadImage
+        width='100%'
+        height='auto'
+        style={{ minHeight: '350px' }}
+        placeholderSrc={placeholderImage}
+        src={content.imageUrl}/>
+        : <div>video</div>}
       </Cell>
     )
   }
