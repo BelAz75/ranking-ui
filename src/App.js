@@ -9,8 +9,9 @@ class App extends Component {
   render () {
     return (
       <Root activeView="view">
-        <View activePanel="panel1.1" id="view">
-          <Panel id="panel1.1">
+        <View activePanel="panel" id="view">
+          <Panel id="panel"
+                 style={{ maxWidth: '550px', marginLeft: 'auto', marginRight: 'auto' }}>
             <PanelHeader
               left={<HeaderButton><Icon28Menu/></HeaderButton>}>
               Cosmos

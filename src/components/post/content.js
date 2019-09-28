@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Cell } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import placeholderImage from './placeholder-image.png';
 
 class CosmoContent extends Component {
   constructor (props) {
@@ -17,10 +19,13 @@ class CosmoContent extends Component {
     const { content } = this.state;
 
     return (
-      <Cell size="l">
-        <img src={content.url}
-             style={{ width: '100%', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}
-             alt=''/>
+      <Cell>
+        <LazyLoadImage
+          width='100%'
+          height='auto'
+          style={{ minHeight: '350px' }}
+          placeholderSrc={placeholderImage}
+          src={content.imageUrl}/>
       </Cell>
     )
   }

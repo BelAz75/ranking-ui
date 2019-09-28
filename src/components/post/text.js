@@ -13,14 +13,16 @@ class CosmoText extends Component {
     };
   }
 
+  createMarkup(text) {
+    return {__html: text};
+  }
+
   render () {
     const { text } = this.state;
 
     return (
       <Div>
-        <div>
-        {text}
-        </div>
+        <div dangerouslySetInnerHTML={this.createMarkup(text)}></div>
       </Div>
     )
   }

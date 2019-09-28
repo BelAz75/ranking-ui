@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { PanelSpinner } from '@vkontakte/vkui';
+import '@vkontakte/vkui/dist/vkui.css';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import CosmoPost from '../post/post';
 import { COSMO_API_ENDPOINT, COSMO_FEED_ENDPOINT } from '../../constants/endpoint.constant';
 
@@ -38,17 +41,21 @@ class CosmoFeed extends Component {
 
     if (error) {
       return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
     } else {
       return (
-        <span>
+        <div>
           {
-            posts.map(post => (
-              <CosmoPost key={post.timestamp} post={post}/>
-            ))
+            !isLoaded
+              ? <PanelSpinner/>
+              : <LazyLoadComponent>
+                  {
+                    posts.map(post => (
+                      <CosmoPost key={post.timestamp} post={post}/>
+                    ))
+                  }
+                </LazyLoadComponent>
           }
-        </span>
+        </div>
       )
     }
   }
