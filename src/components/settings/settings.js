@@ -54,11 +54,12 @@ class CosmoSettings extends Component {
     };
 
     this.removeAccount = (account) => {
-      console.info('removeAccount', account);
       fetch(`${COSMO_API_ENDPOINT}/${COSMO_ACCOUNTS_ENDPOINT}?id=${account.uuid}`, {
         method: 'DELETE',
       })
-        .then(() => {})
+        .then(() => {
+          this.getAccounts();
+        })
         .catch(console.log)
     };
   }
