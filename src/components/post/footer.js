@@ -19,9 +19,11 @@ class CosmoFooter extends Component {
     const { post } = this.state;
 
     return (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Cell expandable before={<Icon24Like />}>{post.likesCount}</Cell>
-        <Cell expandable before={<Icon24Comment />}>{post.commentsCount}</Cell>
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Cell before={<Icon24Like/>}>{post.likesCount}</Cell>
+          <Cell before={<Icon24Comment/>}>{post.commentsCount}</Cell>
+        </div>
       </div>
     )
   }

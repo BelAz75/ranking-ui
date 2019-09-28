@@ -23,7 +23,7 @@ class CosmoPost extends Component {
     return (
       <List>
         <Group>
-          <CosmoUser user={post.user}/>
+          <CosmoUser post={post}/>
 
           <CosmoContent content={post.content[0]}/>
 
