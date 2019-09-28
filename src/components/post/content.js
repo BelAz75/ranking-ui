@@ -18,7 +18,9 @@ class CosmoContent extends Component {
 
     return (
       <Cell size="l">
-        <img src={content.url} style={{width: '100%'}} alt=''/>
+        <img src={content.url}
+             style={{ width: '100%', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}
+             alt=''/>
       </Cell>
     )
   }
