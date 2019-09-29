@@ -17,7 +17,6 @@ class CosmoUser extends Component {
 
   render () {
     const { post } = this.state;
-    console.info('post', post);
     const { user } = post;
 
     return (

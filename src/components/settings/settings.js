@@ -41,7 +41,7 @@ class CosmoSettings extends Component {
       modalHistory: [],
       instagram: '',
       vk: '',
-      activeStory: 'accounts'
+      activeStory: 'accounts',
     };
 
     this.modalBack = () => {
@@ -49,7 +49,20 @@ class CosmoSettings extends Component {
     };
 
     this.modalDone = () => {
-      fetch(`${COSMO_API_ENDPOINT}/${COSMO_ACCOUNTS_ENDPOINT}?vk=${this.state.vk}&instagram=${this.state.instagram}`, {
+      const url    = new URL(`${COSMO_API_ENDPOINT}/${COSMO_ACCOUNTS_ENDPOINT}`);
+      const params = {};
+
+      if (this.state.vk) {
+        params.vk = this.state.vk;
+      }
+
+      if (this.state.instagram) {
+        params.instagram = this.state.instagram;
+      }
+
+      Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+      fetch(url.href, {
         method: 'POST',
       })
         .then(() => {
@@ -191,7 +204,8 @@ class CosmoSettings extends Component {
                 <View id="accounts" activePanel="accounts" modal={modal}>
                   <Panel id="accounts">
                     <PanelHeader theme="light">
-                      <Button align={'center'} before={<Icon16UserAdd/>} onClick={() => this.setActiveModal(MODAL_ADD_ACCOUNT)}>
+                      <Button align={'center'} before={<Icon16UserAdd/>}
+                              onClick={() => this.setActiveModal(MODAL_ADD_ACCOUNT)}>
                         Добавить аккаунт
                       </Button>
                     </PanelHeader>
